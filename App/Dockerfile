@@ -1,10 +1,10 @@
 FROM python:3.12-slim
 
-WORKDIR /app
+WORKDIR /App
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY app_async.py .
+COPY mqtt_app_async.py .
 
-CMD ["python", "app.py"]
+CMD ["python", "mqtt_app_async.py"]

@@ -39,7 +39,7 @@ async def main():
     counter = {"value": 0}
     lock = asyncio.Lock()
 
-    async with Client(broker) as client:
+    async with Client(broker, port=8883, tls_context=True) as client:
         await asyncio.gather(
             subscribe_topic(client, topic1, "SUB1"),
             subscribe_topic(client, topic2, "SUB2"),
