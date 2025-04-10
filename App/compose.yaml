@@ -1,0 +1,11 @@
+services:
+  mqttapp:
+    build: .
+    container_name: mqttapp
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+      - MQTT_BROKER=${SERVIDOR}
+      - MQTT_SUB_TOPIC_1=${TOPICO1}
+      - MQTT_SUB_TOPIC_2=${TOPICO2}
+      - MQTT_PUB_TOPIC=${TOPICOPUB}
+    restart: unless-stopped
