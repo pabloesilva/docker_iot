@@ -1,6 +1,7 @@
 services:
   mqttapp:
     build: .
+    
     container_name: mqttapp
     environment:
       - TZ=America/Argentina/Buenos_Aires
@@ -9,3 +10,6 @@ services:
       - TOPICO2=${TOPICO2}
       - TOPICOSUB=${TOPICOPUB}
     restart: unless-stopped
+    env_file:
+    - .env
+    
