@@ -145,3 +145,13 @@ def logout():
     session.clear()
     logging.info("el usuario {} cerró su sesión".format(session.get("user_id")))
     return redirect(url_for('index'))
+
+@app.route("/cambiar_tema", methods=["POST"])
+@require_login
+def cambiar_tema():
+    data = request.get_json()
+    tema = data.get("tema")
+    if tema in ["light", "dark"]:
+        session["tema"] = tema
+        logging.info(f"Tema cambiado a {tema} por el usuario {session.get('user_id')}")
+    return '', 204
